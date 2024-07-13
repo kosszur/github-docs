@@ -1,22 +1,22 @@
 ---
 title: Troubleshooting your environment
-intro: "Learn about troubleshooting problems in your local environment and the {% data variables.product.prodname_docs %} staging platform."
+intro: "Tudjon meg többet a helyi környezetben és a {% data variables.product.prodname_docs %} staging platformján felmerülő problémák hibaelhárításáról."
 versions:
   feature: 'contributing'
 ---
 
 ## Troubleshooting tests that fail locally but pass in CI
 
-If you run tests locally and get failures in `tests/rendering/server.js` around static assets, stylesheets, or the client-side JavaScript bundle, but the same tests pass in CI on a PR, run the command `npm run build`. This is a one-time command that creates static assets locally.
+Ha helyben futtatja a teszteket, és hibákat kap a `tests/rendering/server.js` a statikus eszközök (assets), stíluslapok vagy az ügyféloldali JavaScript-bundle (köteg) körül, de ugyanezek a tesztek a CI-ben is megfelelnek egy PR-on, futtassa a  `npm run build` parancsot. Ez egy egyszeri parancs, amely statikus eszközöket (assets) hoz létre helyben.
 
-For more information, see "[AUTOTITLE](/contributing/setting-up-your-environment-to-work-on-github-docs/creating-a-local-environment)."
+További információért, lásd:  "[AUTOTITLE](/contributing/setting-up-your-environment-to-work-on-github-docs/creating-a-local-environment)."
 
 ## Troubleshooting stalled staging deployments
 
-If a staging deployment is pending for more than ten minutes, try closing your pull request (without deleting the branch) and reopening it. This will trigger a new staging deployment. It won't break anything.
+Ha több mint tíz percig függőben van egy staging deployment, próbálja meg bezárni a pull request (a branch törlése nélkül), majd nyissa meg újra. Ez új staging deployment-et indít el. Nem fog eltörni semmit.
 
-If that doesn't work, use the commands below to trigger a new staging deployment by pushing an empty commit on the command line.
-  
+Ha ez nem működik, használja az alábbi parancsokat, hogy elindítson egy új staging deployment-et úgy, hogy egy üres commit-ot push-ol a parancssorban.( use the commands below to trigger a new staging deployment by pushing an empty commit on the command line.)
+
 ```shell
 git commit --allow-empty -m 'empty commit to redeploy staging'
 git push
@@ -24,7 +24,7 @@ git push
 
 ## Troubleshooting stalled or stuck  CI
 
-If your tests are stuck on "In progress" or "Pending" for more than an hour, use the commands below to rerun CI by pushing an empty commit on the command line.
+Ha a tesztek több mint egy órán keresztül "In progress" vagy "Pending" állapotban vannak, az alábbi parancsokkal futtassa újra a CI-t úgy, hogy egy üres commit-ot push-ol a parancssorban (to rerun CI by pushing an empty commit on the command line.)
 
 ```shell
 git commit --allow-empty -m 'empty commit to rerun CI'
@@ -33,13 +33,13 @@ git push
 
 ## Troubleshooting local server problems
 
-If you are running `npm start` and get a `Cannot find module` error, try the following command before restarting the server.
+Ha az `npm start` parancsot futtatja, és a `Cannot find module` hibaüzenetet kapja, próbálja ki a következő parancsot a server újraindítása előtt.
 
 ```shell
 npm install
 ```
 
-If that doesn't fix the problem, use the following command to remove the `node_modules` directory and reinstall.
+Ha ez nem oldja meg a problémát, használja a következő parancsot a `node_modules` könyvtár eltávolításához és újratelepítéséhez.
 
 ```shell
 rm -rf node_modules
@@ -48,15 +48,15 @@ npm install
 
 ## Troubleshooting staging problems
 
-If you are having trouble with the staging server, you should see more information about the error in your browser or on the command line if you run the site locally. Check out your branch locally and use the following command to launch the local server.
+Ha problémái vannak az staging server-el, akkor a hibával kapcsolatos további információknak kell megjelenniük a böngészőben vagy a parancssorban, ha helyben futtatja a webhelyet. Nézze meg local branch-ét, és használja a következő parancsot a helyi szerver elindításához.
 
 ```shell
 npm start
 ```
 
-When the server is running, navigate to the problematic article on `https://localhost:4000` in your browser. The staging server will just show an "Oops" error, but the local server should show a stack trace for debugging.
+Amikor a szerver fut, keresse meg a problémás cikket a `https://localhost:4000` címen a böngészőjében. Az staging server csak "Oops" hibát jelenít meg, de a helyi szervernek stack trace-t kell mutatnia a hibakereséshez (debugging).
 
-If you see an error resembling the one below, make sure single quotes are properly escaped in the frontmatter. Also, check the formatting in `redirect_from` blocks. For more information, see "[AUTOTITLE](/contributing/syntax-and-versioning-for-github-docs/using-yaml-frontmatter#escaping-single-quotes)."
+Ha az alábbihoz hasonló hibát lát, győződjön meg arról, hogy az idézőjelek (single quotes) megfelelően vannak kiírva a formázóban. Ezenkívül ellenőrizze a `redirect_from` blokkok formázását is. További információért, lásd:  "[AUTOTITLE](/contributing/syntax-and-versioning-for-github-docs/using-yaml-frontmatter#escaping-single-quotes)."
 
 ```text
 error parsing file: /Users/z/git/github/docs/content/dotcom/articles/troubleshooting-custom-domains-and-github-pages.md
@@ -81,19 +81,19 @@ If an article that is available for {% data variables.product.prodname_ghe_serve
 
 ## Debugging locally
 
-During development, you can visit any page on `http://localhost:4000` and add `?json=page` to the end of the path to show some underlying information that may be helpful for debugging. In addition to basic info like title and intro, these are a few fields that may be useful.
+A fejlesztés során felkeresheti a `http://localhost:4000` bármely oldalát, és hozzáadhatja a `?json=page` karakterláncot az elérési út végéhez, hogy megmutasson néhány mögöttes információt, amely hasznos lehet a hibakereséshez. Az olyan alapvető információkon kívül, mint a cím és a bevezető, ezek a mezők hasznosak lehetnek.
 
-| Field | Description |
+| Mező | Description |
 | ----- | ----------- |
 |`productVersions` | Shows what the site is parsing from the `productVersions` frontmatter.
-| `permalinks` | Shows all permalinks that the site is generating for the page.
+| `permalinks` | Megjeleníti az összes állandó hivatkozást (permalinks), amelyet a webhely az oldalhoz generál.
 | `redirect_from` | Shows the hardcoded redirects in the `redirect_from` frontmatter.
-| `redirects` | Shows all redirects that the site is generating for the page.
-| `includesPlatformSpecificContent` | Shows whether the site detects any platform-specific content on the page.
+| `redirects` | Megjeleníti az összes átirányítást, amelyet a webhely az oldalhoz generál.
+| `includesPlatformSpecificContent` | Megmutatja, hogy a webhely észlel-e platformspecifikus tartalmat az oldalon.
 
 ## Working with liquid processing
 
-If your text or code example includes content between curly brackets (`{` and `}`), you need to wrap it between <code>&#123% raw %&#125;</code> and <code>&#123% raw %&#125;</code> tags to disable Liquid processing for that section. For example:
+Ha a szöveg vagy példakódja zárójelek (`{` és `}`) között tartalmaz tartalmat, akkor a <code>&#123% raw %&#125;</code> és a <code>&#123% raw %&#125;</code> címkék közé kell csomagolnia az adott szakasz Liquid processing (folyékony feldolgozásának) letiltásához. (to disable Liquid processing for that section.) Például:
 
 * **Use**:
 

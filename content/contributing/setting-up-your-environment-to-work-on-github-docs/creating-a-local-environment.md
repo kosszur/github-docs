@@ -1,23 +1,23 @@
 ---
 title: Creating a local environment
 shortTitle: Create a local environment
-intro: 'You can run the {% data variables.product.prodname_docs %} application locally on your computer.'
+intro: 'A {% data variables.product.prodname_docs %} alkalmazást helyben futtathatja a számítógépén.'
 versions:
   feature: 'contributing'
 ---
 
 ## About {% data variables.product.prodname_docs %} site structure
 
-The {% data variables.product.prodname_docs %} site was originally a Ruby on Rails web application. Some time later it was converted into a static site powered by [Jekyll](https://jekyllrb.com/). A few years after that it was migrated to [Nanoc](https://nanoc.app/), another Ruby static site generator.
+A {% data variables.product.prodname_docs %} webhely eredetileg egy Ruby on Rails webalkalmazás volt. Nem sokkal később a [Jekyll](https://jekyllrb.com/) által működtetett statikus helyszínné alakították át. Néhány évvel ezután áttelepítették a [Nanoc](https://nanoc.app/)-ra, egy másik Ruby statikus site generátorra.
 
-Today it's a dynamic Node.js webserver powered by Express, using middleware to support proper HTTP redirects, language header detection, and dynamic content generation to support the various flavors of {% data variables.product.company_short %}'s product documentation, like {% data variables.product.prodname_dotcom_the_website %} and {% data variables.product.prodname_ghe_server %}.
+Ma ez egy dinamikus Node.js webszerver, amelyet Express hajt, és köztes szoftvert használ a megfelelő HTTP-átirányítások, a nyelvi fejléc-észlelés és a dinamikus tartalomgenerálás támogatására, hogy támogassa a {% data variables.product.company_short %} termékdokumentációjának különböző változatait, mint például a {% data variables.product.prodname_dotcom_the_website %} és a {% data variables.product.prodname_ghe_server %}.
 
-The tooling for this site has changed over the years, but many of the tried-and-true authoring conventions of the original Jekyll site have been preserved.
+Ennek a webhelynek az eszközrendszere változott az évek során, de az eredeti Jekyll webhely számos jól bevált szerzői konvenciója megmaradt. (but many of the tried-and-true authoring conventions of the original Jekyll site have been preserved.)
 
-* Content is written in Markdown files, which live in the `content` directory.
+* A tartalom Markdown-fájlokba íródik, amelyek a `content` könyvtárban élnek.
 <!-- - Content can use the [Liquid templating language](/contributing/syntax-and-versioning-for-github-docs/using-markdown-and-liquid-for-github-docs).-->
-* Files in the `data` directory are available to templates via the {% raw %}`{% data %}`{% endraw %} tag.
-* Markdown files can contain [frontmatter](https://jekyllrb.com/docs/front-matter).
+* A `data` könyvtárban lévő fájlok a {% raw %}`{% data %}`{% endraw %} címkén keresztül érhetők el a sablonok számára.
+* Markdown-fájlok tartalmazhatnak [formázókat](https://jekyllrb.com/docs/front-matter).
 * The [`redirect_from`](https://github.com/jekyll/jekyll-redirect-from) Jekyll plugin behavior is supported.
 
 ## Setting up your local environment
@@ -55,17 +55,18 @@ When you're ready to stop your local server, type <kbd>Ctrl</kbd>+<kbd>C</kbd> i
 
 {% note %}
 
-**Note:** You should typically only need to run `npm ci` and `npm run build` each time you pull the latest version of a branch.
+**Megjegyzés:** Általában csak az `npm ci`-t és az `npm run build`-et kell futtatnia minden alkalommal, amikor egy branch legújabb verzióját lekéri (pull). (each time you pull the latest version of a branch.)
+
  * `npm ci` does a clean install of dependencies, without updating the `package-lock.json` file.
  * `npm run build` creates static assets, such as JavaScript and CSS files.
 
 {% endnote %}
 
-If you would like to read more about debugging and troubleshooting the {% data variables.product.prodname_docs %} application, see "[AUTOTITLE](/contributing/setting-up-your-environment-to-work-on-github-docs/troubleshooting-your-environment)" in the github/docs repository.
+Ha többet szeretne megtudni a {% data variables.product.prodname_docs %} alkalmazás hibakereséséről és hibaelhárításáról, olvassa el a "[AUTOTITLE](/contributing/setting-up-your-environment-to-work-on-github-docs/troubleshooting-your-environment)" a github/docs repository-ban.
 
 ### Using browser shortcuts
 
-The [`src/bookmarklets`](https://github.com/github/docs/tree/main/src/bookmarklets) directory in the {% data variables.product.prodname_docs %} repository contains browser shortcuts that can help with reviewing {% data variables.product.company_short %} documentation. For more information, see the directory's [`README`](https://github.com/github/docs/tree/main/src/bookmarklets/README.md).
+A {% data variables.product.prodname_docs %} repository-ban található [`src/bookmarklets`](https://github.com/github/docs/tree/main/src/bookmarklets) könyvtár olyan browser shortcut-okat (böngészőparancsokat) tartalmaz, amelyek segíthetnek a {% data variables.product.company_short %} dokumentációjának áttekintésében. További információért, lásd:  [`README`](https://github.com/github/docs/tree/main/src/bookmarklets/README.md) könyvtárát.
 
 ### Enabling different languages
 
