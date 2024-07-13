@@ -1,39 +1,39 @@
 ---
 title: Using Git on GitHub Docs
 shortTitle: Using Git
-intro: 'You can use Git on the command line to commit changes and then push them to the documentation repository.'
+intro: 'A parancssorban a Git segítségével commit-olhatja (véglegesítheti) a változtatásokat, majd push-ohatja (elküldheti) azokat a dokumentációs repository-ba.'
 versions:
   feature: 'contributing'
 ---
 
-This article describes the process of creating a topic branch for the documentation repository, committing changes, and pushing your changes back up to the remote repository.
+Ez a cikk a dokumentációs repository topic branch-ének létrehozását, a változtatások commitolásának (véglegesítésének) és a módosítások távoli repository-ba való push-olásának (visszaküldésének) folyamatát írja le.
 
-The article assumes you have already cloned the documentation repository locally and you will be making changes on your local computer rather than on {% data variables.product.prodname_dotcom_the_website %} or in a codespace. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/cloning-a-repository?tool=webui)."
+A cikk feltételezi, hogy már klónozta a dokumentációs repository-t helybe, és a módosításokat a helyi számítógépen hajtja végre, nem pedig a {% data variables.product.prodname_dotcom_the_website %} webhelyen vagy egy codespace-ben (kódtérben). További információért, lásd:  "[AUTOTITLE](/repositories/creating-and-managing-repositories/cloning-a-repository?tool=webui)."
 
 ## Setting up your topic branch and making changes
 
-To keep your local branches in sync with their remotes and avoid merge conflicts, follow these steps as you work on documentation.
+Tartsd szinkronba a helyi branch-edet a távolival és kerüld el a merge conflict-okat, kövesse az alábbi lépéseket a dokumentáción való munka során.
 
-1. In the terminal, change the current working directory to the location where you cloned the documentation repository. For example:
+1. A terminálban módosítsa az aktuális munkakönyvtárat arra a helyre, ahol a dokumentációs repository klónozta. Például:
 
    ```shell
    cd ~/my-cloned-repos/docs
    ```
 
-1. Switch to the default branch: `main`.
+1. Váltson az alapértelmezett branch-re: `main`.
 
    ```shell
    git checkout main
    ```
 
-1. Get the most recent commits from the remote repository.
+1. Húzd le a legutóbbi commitokat a remote repository-ból.
 
    ```shell
    git pull origin main
    ```
 
-1. Switch to or create a topic branch.
-   * To start a new project, create a new topic branch from `main`.
+1. Váltson át (Switch to) vagy hozzon létre egy topic branch-et (témaágat).
+   * Új projekt indításához hozzon létre egy új topic branch-et (témaágat) a `main`-ből.
 
      ```shell
      git checkout -b YOUR-TOPIC-BRANCH
@@ -41,7 +41,7 @@ To keep your local branches in sync with their remotes and avoid merge conflicts
 
      {% note %}
 
-     **Note**: You can use forward slashes as part of the branch name, for example to include your user name:
+     **Note**: Használhat perjelet (forward slashes) a branch-név részeként, például a felhasználónév megadásához:
 
      ```shell
      git checkout -b my-username/new-codespace-policy
@@ -49,20 +49,20 @@ To keep your local branches in sync with their remotes and avoid merge conflicts
 
      {% endnote %}
 
-   * To work on an existing project, switch to your topic branch and merge changes from `main`.
+   * Ha egy meglévő projekten szeretne dolgozni, váltson át a topic branch-ére, és merge-elja (egyesítse) a módosításokat `main`-ből. (switch to your topic branch and merge changes from `main`.)
 
      ```shell
      git checkout YOUR-TOPIC-BRANCH
      git merge main
      ```
 
-     If you run into merge conflicts, follow the steps later in this article for [resolving merge conflicts](#resolving-merge-conflicts).
+     Ha merge conflict-sba (összevonási ütközésekbe) futott bele, kövesse a jelen cikk későbbi lépéseit az [resolving merge conflicts (összevonási ütközések feloldásához)](#resolving-merge-conflicts).
 
-1. Open your preferred text editor, edit files as required, then save your changes.
+1. Nyissa meg a kívánt szövegszerkesztőt, szerkessze a fájlokat szükség szerint, majd mentse a módosításokat.
 
 ## Committing and pushing your changes
 
-1. When you're ready to commit your changes, open a terminal and check the status of your topic branch with `git status`. Make sure you see the correct set of changes.
+1. Ha készen állnak a változtatások a commit-ra (véglegesítésére), nyisson meg egy terminált, és ellenőrizze a topic branch (témaág) állapotát a `git status`-tal. Győződjön meg arról, hogy a megfelelő módosításkészletet (set of changes) látja.
 
    ```shell
    git status
@@ -79,23 +79,23 @@ To keep your local branches in sync with their remotes and avoid merge conflicts
            example-new-file.md
    ```
 
-1. Stage the changed files so that they're ready to be committed to your topic branch.
+1. Stage-elje (Állítsa össze) a módosított fájlokat úgy, hogy készen álljanak a topic branch (témaágban) való commitolásra (véglegesítés).
 
-   * If you created new files or updated existing files, use `git add FILENAME [FILENAME...]`. For example:
+   * Ha új fájlokat hozott létre vagy frissítette a meglévő fájlokat, használja a `git add FILENAME [FILENAME...]` parancsot. Például:
 
      ```shell
      git add example-new-file.md example-changed-file.md
      ```
 
-     This adds the updated version of the files to Git's staging area, from which changes can be committed. To unstage a file, use `git reset HEAD FILENAME`. For example, `git reset HEAD example-changed-file.md`.
+     Ez hozzáadja a fájlok frissített verzióját a Git staging area-jához (összeállítási területéhez), ahonnan a változtatások commitolhatók (véglegesíthetők). Egy fájl unstage-éhez (összeállított állapotának megszüntetéséhez) használja a `git reset HEAD FILENAME`. Például, `git reset HEAD example-changed-file.md`.
 
-   * If you deleted files, use `git rm FILENAME [FILENAME...]`. For example:
+   * Ha törölted a fájlokat, használd a `git rm FILENAME [FILENAME...]` parancsot. Például:
 
      ```shell
      git rm example-deleted-file.md
      ```
 
-1. Commit your changes.
+1. Commit-olja (véglegesítse) a változtatásait (Commit your changes).
 
    ```shell
    git commit -m "Commit message title (max 72 characters)
@@ -105,19 +105,19 @@ To keep your local branches in sync with their remotes and avoid merge conflicts
    and the closing quotation mark at the end of the commit message."
    ```
 
-   This commits the staged changes locally. You can now push this commit, and any other unpushed commits, to the remote repository.  
+   Ez commit-olja (véglegesíti) az helyileg összeállított változásokat. (This commits the staged changes locally.) Ezt a commit-ot és minden más nem push-olt commit-ot most a remote (távoli) repository-ba küldheti. (You can now push this commit, and any other unpushed commits, to the remote repository.)  
 
-   To remove this commit, use `git reset --soft HEAD~1`. After running this command our changes are no longer committed but the changed files remain in the staging area. You can make further changes and then `add` and `commit` again.
+   A commit (véglegesítés) eltávolításához használja a `git reset --soft HEAD~1`. Ennek a parancsnak a futtatása után a változtatásaink már nem commitáltak (végletgesítettek), de a módosított fájlok az összeállítási területen (staging area) maradnak. (After running this command our changes are no longer committed but the changed files remain in the staging area.) További módosításokat végezhet (You can make further changes), majd `add` és `commit` ismét.
 
-1. Push your changes to the remote repository on {% data variables.product.prodname_dotcom_the_website %}.
+1. Push-old (told fel) a módosításaidat a remote (távoli) repository-ba a {% data variables.product.prodname_dotcom_the_website %}-on.
 
-   * The first time you push your branch you can choose to add an upstream tracking branch. This allows you to use `git pull` and `git push` on that branch without additional arguments.
+   * Amikor először push-olod (tolod) a branch-et, hozzáadhat egy upstream tracking branch-et. Ez lehetővé teszi a `git pull` és a `git push` használatát ezen az branch-en további argumentumok nélkül.
 
      ```shell
      git push --set-upstream origin YOUR-TOPIC-BRANCH
      ```
 
-   * If you've pushed this branch before, and set an upstream tracking branch you can use:
+   * Ha korábban már push-olta (toltad) ezt a branch-et, és beállított egy upstream tracking branch-et, használd:
 
      ```shell
      git push
@@ -125,31 +125,31 @@ To keep your local branches in sync with their remotes and avoid merge conflicts
 
 ### Best practices for commits
 
-* Favor commits that contain small, focused groups of changes over commits with large, unfocused groups of changes, since this will help you write commit messages that other people can easily understand. An exception is the initial commit for a new project or category. These commits are sometimes large, as they often introduce the bare versions of many articles at once to provide an organizational scheme for subsequent work.
-* If you are incorporating feedback or want to address a set of changes to a particular person or team for review, @mention the person whose suggestions you are incorporating. For example: "Incorporating feedback from @octocat," or "Updating billing configuration steps - cc @monalisa for accuracy."
-* If a commit addresses an issue, you can reference the issue number in the commit, and a link to the commit will appear in the issue conversation timeline: "Addresses #1234 - adds steps for backing up the VM before upgrading."
+* Előnyben részesítse azokat a commit-okat (véglegesítéseket), amelyek kis, fókuszált változtatási csoportokat tartalmaznak, mint a nagy, nem fókuszált változtatási csoportokat tartalmazó commitokat (véglegesítéseket), mivel ez segít olyan commit message (üzenetek) megírásában, amelyeket mások könnyen megértenek. Kivételt képez egy új projekt vagy kategória initial commit-ja (kezdeti véglegesítése). Ezek a commit-ok néha nagyok, mivel gyakran több cikk puszta változatát vezetik be egyszerre, hogy szervezeti sémát adjanak a későbbi munkához. (These commits are sometimes large, as they often introduce the bare versions of many articles at once to provide an organizational scheme for subsequent work.)
+* Ha feedback-et (visszajelzést) szeretne beépíteni (incorporating), vagy egy adott személy vagy csapat változásait szeretné review-zni (értékelni), @mention -ölje (említse meg) azt a személyt, akinek javaslatait beépíti (whose suggestions you are incorporating). Például: "Incorporating feedback from @octocat," vagy "Updating billing configuration steps - cc @monalisa for accuracy.".
+* Ha egy commit (véglegesítés) megold egy issue-t (If a commit addresses an issue), hivatkozhat a issue számra a commit-ban, és a commit-ra mutató hivatkozás jelenik meg az issue conversation (megbeszélés) idővonalán: "Addresses #1234 - adds steps for backing up the VM before upgrading."
   {% note %}
 
-  **Note**: We generally don't close an issue via a commit. To close an issue, open a pull request and add "Closes #1234" to the description. The linked issue will be closed when the pull request is merged. For more information, see "[AUTOTITLE](/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue)."
+  **Note**: Általában nem zárunk le egy issue-t (ügyet) egy commit-tal. Egy issue (probléma) lezárásához nyisson meg egy pull request-et, és adja hozzá a "Closes #1234" kifejezést a leíráshoz. A linked issue (kapcsolt probléma) a pull request merge-elésekor (egyesítésekor) lezárul. További információért, lásd:  "[AUTOTITLE](/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue)."
 
   {% endnote %}
-* Make commit messages clear, detailed, and imperative. For example: "Adds a conceptual article about 2FA," not "Add info."
-* Try not to leave uncommitted changes in your local branch when you finish working for the day. Get to a good stopping point and commit and push your changes so your work is backed up to the remote repository.
-* Only push up to {% data variables.product.prodname_dotcom_the_website %} after you've made a few commits. Pushing after every commit adds noise to our ops channels on Slack and causes unnecessary builds to run.
+* Legyenek a commit message-ek egyértelműek, részletesek és szükségszerűek (clear, detailed, and imperative). Például: "Adds a conceptual article about 2FA," és nem "Add info."
+* Lehetőleg ne hagyjon uncommitted (véglegesítetlen) változtatásokat a local branch-eden, amikor befejezi a napi munkát. Kerüljön el egy jó megállóhelyre, és commit-old, és push-old a változtatásokat, hogy a munkájáról biztonsági másolat készüljön a remote (távoli) repository-ba.
+* Csak néhány commit után push-old fel a {% data variables.product.prodname_dotcom_the_website %} oldalra. Ha minden commit után push-olunk, az megnöveli a műveleti csatornáinkat zajosságát a Slack-en, és szükségtelen buildeket eredményez.
 
 ## Resolving merge conflicts
 
-When you try to merge two branches that contain different changes to the same part of a file, you will get a merge conflict. In our workflow, this most often occurs when merging `main` down into a local topic branch.
+Ha két olyan branch-et próbál merge-elni (egyesíteni), amelyek egy fájl ugyanazon részének különböző módosításait tartalmazzák, merge conflict-ot (összevonási ütközést) fog kapni. Munkafolyamatunkban ez leggyakrabban akkor fordul elő, amikor a `main`-t egy local topic branch (helyi témaágba) merge-eljük (egyesítjük).
 
-There are two ways to handle merge conflicts:
-* Edit the file in your text editor and choose which changes to keep. Then commit the updated file to your topic branch from the command line.
-* [Resolve the merge conflicts on {% data variables.product.prodname_dotcom_the_website %}](/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-on-github).
+A merge conflict-ok (összevonási ütközések) kezelésének két módja van:
+* Szerkessze a fájlt a szövegszerkesztőben, és válassza ki, mely változtatásokat szeretné megtartani. Ezután commit-olja (véglegesítse) a frissített fájlt a topic branch-eden (témaágben) a parancssorból.
+* [Oldja meg (Resolve) a merge conflict-okat {% data variables.product.prodname_dotcom_the_website %}-on](/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-on-github).
 
 ### Resolving merge conflicts by editing the file and committing the changes
 
-1. On the command line, note the files that contains merge conflicts.
-1. Open the first of these files in your text editor.
-1. In the file, look for the merge conflict markers.
+1. A parancssorban jegyezze fel az merge conflict-okat tartalmazó fájlokat. (On the command line, note the files that contains merge conflicts.
+1. Nyissa meg az első fájlt a szövegszerkesztőben.
+1. Keresse meg a fájlban az merge conflict jelzőket.
 
    ```text
     <<<<<<< HEAD
@@ -159,33 +159,33 @@ There are two ways to handle merge conflicts:
     >>>>>>> main
    ```
 
-1. Decide which changes to keep and delete the unwanted changes and the merge conflict markers. If you need to make further changes, you can do so at the same time. For example, you could change the five lines shown in the previous code sample to the single line:
+1. Döntse el, mely változtatásokat kívánja megtartani, és törölje a nem kívánt változtatásokat és a merge conflict jelzőket. Ha további változtatásokat kell végrehajtania, azt egyidejűleg megteheti. Például megváltoztathatja az előző kódmintában látható öt sort egyetlen sorra:
 
    ```text
    Here are the changes you want to use.
    ```
 
-   If there are multiple files with merge conflicts, repeat the previous steps until you resolve all conflicts.
+   Ha több fájl is merge conflict-os, ismételje meg az előző lépéseket, amíg az összes ütközést meg nem oldja (resolve all conflicts).
 
    {% note %}
 
-   **Note**: You should apply care when resolving merge conflicts. Sometimes you will simply accept your own changes, sometimes you will use the upstream changes from the `main` branch, and sometimes you will combine both sets of changes. If you're unsure of the best resolution, be wary of replacing the changes from upstream as these may have been made for specific reasons that you're not aware of.
+   **Note**: Óvatosan kell eljárnia az merge conflict feloldásakor. (You should apply care when resolving merge conflicts.) Néha egyszerűen elfogadja a saját módosításait, néha a `main` branch-ból az upstream módosításait fogja használni (sometimes you will use the upstream changes from the `main` branch), néha pedig kombinálja a két változáskészletet. Ha nem biztos a legjobb felbontásban, ügyeljen arra, hogy a upstream-ból jövő módosításokat cserélje ki, mivel ezek olyan konkrét okok miatt történhettek, amelyekről nem tud. (If you're unsure of the best resolution, be wary of replacing the changes from upstream as these may have been made for specific reasons that you're not aware of.)
 
    {% endnote %}
 
-1. In the terminal, stage the file, or files, that you just modified.
+1. A terminálban állítsa össze (stage) az imént módosított fájlt vagy fájlokat.
 
    ```shell
    git add changed-file-1.md changed-file-2.md
    ```
 
-1. Commit the files.
+1. Commit-álja a fájlokat.
 
    ```shell
    git commit -m "Resolves merge conflicts"
    ```
 
-1. Push the committed changes to the remote repository on {% data variables.product.prodname_dotcom_the_website %}.
+1. Push-olja (Tolja be) a commit-ált (végrehajtott) módosításokat a remote (távoli) repository-ba a {% data variables.product.prodname_dotcom_the_website %} webhelyen.
 
    ```shell
    git push
@@ -193,12 +193,12 @@ There are two ways to handle merge conflicts:
 
 ## Creating a pull request
 
-We recommend you open your pull request on {% data variables.product.prodname_dotcom %} early. Create the pull request as a draft until you are ready for it to be reviewed. Each time you push changes, your commits will be added to the pull request.
+Javasoljuk, hogy mielőbb nyissa meg pull request-et a {% data variables.product.prodname_dotcom %}-on. Hozza létre vázlatként a pull request-et, amíg nem áll készen a review-ra (ellenőrzésre). Minden alkalommal, amikor push-olja (leküldi) a változtatásokat, a commit-jaid hozzáadódik a pull request-hez.
 
 {% note %}
 
-**Note**: You can quickly access pull requests you've created by clicking **Pull requests** at the top of every page on {% data variables.product.prodname_dotcom_the_website %}.
+**Note**: Gyorsan elérheti az Ön által létrehozott pull request-eket, ha a {% data variables.product.prodname_dotcom_the_website %} minden oldalának tetején lévő **Pull requests** elemre kattint.
 
 {% endnote %}
 
-For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request?tool=webui#creating-the-pull-request)."
+További információért, lásd: "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request?tool=webui#creating-the-pull-request)."
