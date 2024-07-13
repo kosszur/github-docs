@@ -1,16 +1,16 @@
 ---
 title: Self review checklist
-intro: "Before you submit your pull request for review, you should first review it yourself."
+intro: "Mielőtt review-ra (felülvizsgálatra) submit-álná (küldené) a pull request-et, először saját magának kell átnéznie (review it yourself)."
 versions:
   feature: 'contributing'
 ---
 
-Before you submit your changes to the {% data variables.product.prodname_docs %} team for review, work through the list below to complete your self review.
+Mielőtt elküldené (submit) a módosításokat a {% data variables.product.prodname_docs %} csapatának review-ra (felülvizsgálatra), dolgozza át (work through) az alábbi listát az önellenőrzés (self review) befejezéséhez.
 
-* If there is a content design plan, confirm that your changes meet the user experience and goals outlined in the plan.
-* After opening your pull request, view your changes on staging to confirm the article renders as expected and matches the source. This helps spot issues like typos, content that doesn't follow the style guide, or content that isn't rendering due to versioning problems.
-* Review your changes for technical accuracy.
-* Review your entire pull request to ensure it follows our guidance on creating content that can be translated. For more information, see "[AUTOTITLE](/contributing/writing-for-github-docs/writing-content-to-be-translated)."
-* Check your changes for grammar, spelling, and adherence to the style guide. For more information, see "[AUTOTITLE](/contributing/style-guide-and-content-model/style-guide)."
-* If you have added new versioning or made changes to existing versioning, confirm your changes render as expected while viewing each available version of the article.
-* If there are any failing checks in your pull request, troubleshoot them until they're all passing.
+* Ha van tartalomtervezési terv, győződjön meg arról, hogy a változtatások megfelelnek a felhasználói élménynek és a tervben felvázolt céloknak.
+* A pull request megnyitása után tekintse meg a módosításokat a staging (összeállítás) során, hogy megbizonyosodjon arról, hogy a cikk a várt módon jelenik meg, és megegyezik a forrással. Ez segít kiszűrni az olyan problémákat, mint az elgépelési hibák, a stílus útmutatóját nem követő tartalom vagy a verziókezelési problémák miatt nem renderelő tartalom.
+* Tekintse át (Review) a változtatásokat a technikai pontosság (technical accuracy) érdekében.
+* Tekintse át a teljes (entire) pull request-et, hogy meggyőződjön arról, hogy az megfelel a lefordítható tartalom létrehozására vonatkozó útmutatásunknak. További információért, lásd: "[AUTOTITLE](/contributing/writing-for-github-docs/writing-content-to-be-translated)."
+* Ellenőrizze (Check) a módosítások nyelvtani, helyesírási és a stílusútmutató betartását. További információért, lásd: "[AUTOTITLE](/contributing/style-guide-and-content-model/style-guide)."
+* Ha új verziót adott hozzá, vagy módosította a meglévő verziót, ellenőrizze (confirm), hogy a változtatások a várt módon jelennek meg a cikk minden elérhető verziójának megtekintése közben.
+* Ha a pull request-edben hibás ellenőrzések szerepelnek, végezze el a hibaelhárítást (troubleshoot) mindaddig, amíg mindegyik sikeres lesz.
