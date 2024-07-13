@@ -1,7 +1,7 @@
 ---
 title: Using the TODOCS placeholder to leave notes
 shortTitle: Using the TODOCS placeholder
-intro: 'You can use the `TODOCS` placeholder to indicate work that still needs to be completed.'
+intro: 'A TODOCS placeholder-el jelezheti a még befejezésre váró munkákat.'
 versions:
   feature: 'contributing'
 ---
@@ -9,13 +9,14 @@ versions:
 <!-- markdownlint-disable search-replace -->
 ## Using the TODOCS placeholder
 
-Sometimes technical writers use placeholders while writing documentation to remind themselves to come back to something later. It's a useful technique, but there's always the possibility that the placeholder will be overlooked and slip into production. At that point, the only way the Docs team will find out about it is if someone sees it and reports it.
+A műszaki írók néha helyőrzőket (placeholder) használnak a dokumentáció írása közben, hogy emlékeztessenek arra, hogy valamire később térjenek vissza. Hasznos technika, de mindig fennáll annak a lehetősége, hogy a helyőrzőt figyelmen kívül hagyják, és becsúsznak az éles környezetbe (slip into production). Ezen a ponton, a Docs csapata csak úgy értesülhet róla, ha valaki meglátja és bejelenti.
 
-To prevent slips, use the string `TODOCS` as your placeholder. The Docs test suite includes a [linting test](https://github.com/github/docs/tree/main/src/content-linter) that will fail if it finds this string anywhere in a Markdown or YAML file.
+A csúszások elkerülése érdekében (To prevent slips) használja a `TODOCS` karakterláncot helyőrzőként. A Docs tesztcsomagja (test suite) tartalmaz egy [linting test](https://github.com/github/docs/tree/main/src/content-linter), amely sikertelen lesz, ha bárhol megtalálja ezt a karakterláncot egy Markdown vagy YAML fájlban.
 
 {% note %}
 
-**Note**: If you use {% data variables.product.prodname_vscode_shortname %} as your text editor, the "[TODO Highlight](https://marketplace.visualstudio.com/items?itemName=wayou.vscode-todo-highlight)" extension is useful for highlighting instances of "TODOCS" in your files. Add "TODOCS" and other varieties of casing, such as "todocs," to the settings for this extension.
+**Note**:
+Ha a {% data variables.product.prodname_vscode_shortname %}-ot használja szövegszerkesztőként, a "[TODO Highlight](https://marketplace.visualstudio.com/items?itemName=wayou.vscode-todo-highlight)" kiterjesztés hasznos a "TODOCS" példányainak kiemeléséhez a fájlokban. Adja hozzá a "TODOCS"-t és a kis- és nagybetűk más változatait, például a "todocs,"-t a bővítmény beállításaihoz.
 
 {% endnote %}
 

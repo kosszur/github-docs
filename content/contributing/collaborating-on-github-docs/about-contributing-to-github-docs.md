@@ -1,48 +1,48 @@
 ---
 title: About contributing to GitHub Docs
 shortTitle: About contributing
-intro: 'You can contribute to GitHub Docs content in several ways.'
+intro: 'A GitHub-dokumentumok tartalmához többféle módon is hozzájárulhat.'
 versions:
   feature: 'contributing'
 ---
 
-{% data variables.product.prodname_dotcom %} documentation is open source. Anyone can contribute to the docs in the public `docs` repository: https://github.com/github/docs. {% data variables.product.prodname_dotcom %} employees work on the documentation in a copy of this repository called `docs-internal`. The two repositories are automatically synced to keep them both up to date with changes merged into the `main` branch of either repository. For simplicity, we'll refer to "the documentation repository" in the articles about contributing to {% data variables.product.prodname_docs %}.
+A {% data variables.product.prodname_dotcom %} dokumentációja nyílt forráskódú. Bárki hozzájárulhat (contribute) a dokumentumokhoz a nyilvános `docs` repository-ban: https://github.com/github/docs. A {% data variables.product.prodname_dotcom %} alkalmazottai ennek repository-nak a `docs-internal` nevű  másolatában dolgoznak a dokumentáción. A két repository automatikusan szinkronizálja a rendszer, hogy mindkettő naprakész legyen az bármelyik repository `main` branch-ében merge-elt változtatásokkal. (The two repositories are automatically synced to keep them both up to date with changes merged into the `main` branch of either repository.) Az egyszerűség kedvéért a {% data variables.product.prodname_docs %}-hoz való hozzájárulásról szóló cikkekben a "a dokumentációs repository"-ra / "the documentation repository" hivatkozunk.
 
-The documentation repository is the place to discuss and collaborate on the documentation that is published here on [docs.github.com](/).<!-- markdownlint-disable-line search-replace -->
+A dokumentációs repository az itt [docs.github.com](/) közzétett dokumentáció megvitatásának és együttműködésének helye. (The documentation repository is the place to discuss and collaborate on the documentation that is published here on [docs.github.com](/).<!-- markdownlint-disable-line search-replace -->)
 
 ## Issues
 
-[Issues](/github/managing-your-work-on-github/about-issues) are used to track tasks that contributors can help with. If an issue has a `triage` label, we haven't reviewed it yet, and you shouldn't begin work on it.
+A problémák ([Issues](/github/managing-your-work-on-github/about-issues)) nyomon követésére szolgálnak azok a feladatok, amelyekben a közreműködők (contributors) segíthetnek. Ha egy problémának (issue) van `triage` (osztályozási) címkéje, még nem vizsgáltuk át (reviewed), és ne kezdjen vele foglalkozni.
 
-If you've found something in the documentation content, or something about the docs.github.com website, that should be updated, search the open issues to see if someone else has reported the same thing. If it's something new, open an issue using a [template](https://github.com/github/docs/issues/new/choose). We'll use the issue to have a conversation about the problem you'd like to be fixed.<!-- markdownlint-disable-line search-replace -->
+Ha talált valamit a dokumentációban vagy a docs.github.com webhelyen, amit frissíteni kell, keressen a nyitott problémák között, hátha valaki más is jelentett-e ugyanezt. Ha valami új, nyisson meg egy problémát egy [sablon (template)](https://github.com/github/docs/issues/new/choose) segítségével. A problémát (issue) arra használjuk, hogy megbeszéljük a megoldani kívánt problémát (problem). (We'll use the issue to have a conversation about the problem you'd like to be fixed.) <!-- markdownlint-disable-line search-replace -->
 
 {% note %}
 
-**Note**: {% data variables.product.prodname_dotcom %} employees should open issues in the private `docs-content` repository.
+**Note**: A {% data variables.product.prodname_dotcom %} alkalmazottainak a privát  `docs-content` repository-ban kell megnyitniuk a problémákat (issues).
 
 {% endnote %}
 
 ## Pull requests
 
-A [pull request](/github/collaborating-with-issues-and-pull-requests/about-pull-requests) is a way to suggest changes in our repository. When we merge those changes, they're deployed to the live site within 24 hours.
+Egy [pull request](/github/collaborating-with-issues-and-pull-requests/about-pull-requests) egy módja annak, hogy változtatásokat javasoljunk a repository-nkban. Amikor ezeket a változtatásokat merge-ljük (egyesítjük), 24 órán belül deploy-oljuk (üzembe helyezzük) őket az élő webhelyen.
 
-We cannot accept contributions to the [REST API reference documentation](/rest/reference). If you spot an inaccuracy in the REST API reference documentation, open an issue in the [`rest-api-description`](https://github.com/github/rest-api-description/issues/new?template=schema-inaccuracy.md) repository.
+Hozzájárulást nem tudunk elfogadni [REST API reference documentation](/rest/reference). Ha pontatlanságot észlel a REST API referencia-dokumentációjában, nyiss egy issue-t a [`rest-api-description`](https://github.com/github/rest-api-description/issues/new?template=schema-inaccuracy.md) repository-ban.
 
-We only document {% data variables.product.prodname_dotcom %} products, features, tools, and extensions. We may mention or link to third-party tools to demonstrate how a feature works, but we do not accept pull requests to document third-party tools or integrations unless they were codeveloped with {% data variables.product.company_short %}.
+Csak a {% data variables.product.prodname_dotcom %} -termékeket, -szolgáltatásokat (features), -eszközöket (tools) és -bővítményeket (extensions) dokumentáljuk. Megemlíthetünk third-party tools (harmadik féltől származó eszközöket) vagy hivatkozhatunk rájuk annak bemutatására, hogyan működik egy funkció, de nem fogadunk el pull request-eket a third-party tools (harmadik féltől származó eszközök) vagy integrációk dokumentálására, kivéve, ha azokat a {% data variables.product.company_short %} segítségével fejlesztették ki.(unless they were codeveloped with {% data variables.product.company_short %}.)
 
 ### Reviewing your own pull requests
 
-You should always review your own pull request first, before marking it as ready for review by others.
+Mindig először a saját pull request-ét tekintse át (review), mielőtt megjelölné mások általi felülvizsgálatra (review-ot) készként. (You should always review your own pull request first, before marking it as ready for review by others.)
 
-For content changes, make sure that you:
+Tartalmi módosítások esetén győződjön meg róla (For content changes, make sure that you) :
 
-* Confirm that the changes meet the user experience and goals outlined in the content design plan (if there is one).
-* Review the content for technical accuracy.
-* Check your changes for grammar, spelling, and adherence to the [AUTOTITLE](/contributing/style-guide-and-content-model/style-guide).
-* Make sure the text in your pull request will be easy to translate. For more information, see "[AUTOTITLE](/contributing/writing-for-github-docs/writing-content-to-be-translated)."
-* Check new or updated Liquid statements to confirm that versioning is correct. For more information, see "[AUTOTITLE](/contributing/syntax-and-versioning-for-github-docs/versioning-documentation)."
-* Check the preview of any pages you have changed. A preview is automatically generated after you submit a pull request and links are added to the pull request. The preview sometimes takes several minutes before it is ready to view. Confirm that everything is rendering as expected. Checking the preview will help you identify problems such as typos, content that doesn't follow the style guide, or content that isn't rendering due to versioning problems. Make sure to check the rendered output for lists and tables, which can sometimes have problems that are difficult to identify in the Markdown.
-* If there are any failing checks in your pull request, troubleshoot them until they're all passing.
+* Győződjön (Confirm) meg arról, hogy a változtatások megfelelnek a felhasználói élménynek és a tartalomtervezési tervben (ha van ilyen) megfogalmazott céloknak.
+* Tekintse át (Review) a tartalmat a műszaki pontosság (technical accuracy) érdekében.
+* Ellenőrizze (Check) a módosítások nyelvtani, helyesírási és a [AUTOTITLE](/contributing/style-guide-and-content-model/style-guide) betartását (adherence).
+* Győződjön (Make sure) meg arról, hogy a pull request szövege könnyen lefordítható. További információért, lásd:  "[AUTOTITLE](/contributing/writing-for-github-docs/writing-content-to-be-translated)."
+* Ellenőrizze az új vagy frissített Liquid utasításokat (Liquid statements), hogy megbizonyosodjon (confirm) arról, hogy a verziószám helyes. További információért, lásd:  "[AUTOTITLE](/contributing/syntax-and-versioning-for-github-docs/versioning-documentation)."
+* Ellenőrizze a módosított oldalak előnézetét. A pull request elküldése után automatikusan létrejön egy előnézet, és a linkek hozzáadásra kerülnek a pull request-hez. Az előnézet néha több percig is eltart, mire készen áll a megtekintésre. Győződjön (Confirm) meg arról, hogy minden a várt módon történik. Az előnézet ellenőrzése segít azonosítani a problémákat, például az elírási hibákat, a stílus útmutatót nem követő tartalmat, vagy a verziókezelési problémák miatt nem renderelő tartalmat (content that isn't rendering due to versioning problems). Ügyeljen arra (Make sure to), hogy a megjelenített (rendered) kimenetben ellenőrizze a listákat és a táblázatokat, amelyek néha olyan problémákat okozhatnak, amelyeket nehéz azonosítani a Markdownban.
+* Ha a pull request-edben hibás ellenőrzések szerepelnek, végezze el a hibaelhárítást (troubleshoot) mindaddig, amíg mindegyik sikeres lesz.
 
 ## Support
 
@@ -52,11 +52,11 @@ If you're having trouble with your {% data variables.product.prodname_dotcom %} 
 
 ## Translations
 
-This website is internationalized and available in multiple languages. The source content in this repository is written in English. We automate translations through an internal process, working with professional translators to localize the English content.
+Ez a weboldal nemzetközi és több nyelven is elérhető. A repository forrástartalma angol nyelven íródott. A fordításokat belső folyamaton keresztül automatizáljuk, professzionális fordítókkal együttműködve az angol tartalom lokalizálása érdekében.
 
-If you spot a translation error, please raise an issue with the details.
+Ha fordítási hibát észlel, kérjük, jelezze a problémát (issue) a részletekkel.
 
-We do not currently accept pull requests for translated content.
+Jelenleg nem fogadunk el lefordított tartalomra vonatkozó pull requests-et.
 
 ## Site policy
 
